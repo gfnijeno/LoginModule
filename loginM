@@ -1,0 +1,106 @@
+package loginModule;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JInternalFrame;
+import java.awt.Color;
+
+public class LoginM {
+
+	private JFrame frame;
+	private JTextField username;
+	private JPasswordField passwordField;
+	private JLabel lblNewLabel_1;
+	private JButton btnNewButton_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginM window = new LoginM();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public LoginM() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 514, 401);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("USERNAME:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(70, 113, 109, 38);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblPassword = new JLabel("PASSWORD:");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblPassword.setBounds(70, 173, 109, 38);
+		frame.getContentPane().add(lblPassword);
+		
+		JButton btnNewButton = new JButton("SUBMIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(username.equals("Admin") && passwordField.equals("password1") || 
+						username.equals("Secretary") && passwordField.equals("password2"));{
+					JOptionPane.showMessageDialog(btnNewButton, "Welcome User!");
+				}
+			}
+		});
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setBounds(103, 247, 133, 26);
+		frame.getContentPane().add(btnNewButton);
+		
+		username = new JTextField();
+		username.setBounds(193, 125, 238, 20);
+		frame.getContentPane().add(username);
+		username.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(193, 185, 238, 20);
+		frame.getContentPane().add(passwordField);
+		
+		lblNewLabel_1 = new JLabel("Login Module");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(177, 33, 146, 38);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		btnNewButton_1 = new JButton("RESET");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				username.setText(null);
+				passwordField.setText(null);
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1.setBounds(254, 247, 133, 26);
+		frame.getContentPane().add(btnNewButton_1);
+	}
+}
