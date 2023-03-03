@@ -1,0 +1,52 @@
+package finals2review;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+
+public class submit {
+
+	private JFrame frmLoginSuccess;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void NewScreen() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					submit window = new submit();
+					window.frmLoginSuccess.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public submit() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmLoginSuccess = new JFrame();
+		frmLoginSuccess.setTitle("Login Success");
+		frmLoginSuccess.setBounds(100, 100, 420, 210);
+		frmLoginSuccess.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLoginSuccess.getContentPane().setLayout(null);
+		
+		JLabel welcome = new JLabel("Welcome User!");
+		welcome.setFont(new Font("Tahoma", Font.BOLD, 18));
+		welcome.setBounds(133, 47, 140, 79);
+		frmLoginSuccess.getContentPane().add(welcome);
+	}
+}
