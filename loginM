@@ -124,7 +124,7 @@ public class loginModule {
 				if (chckbxNewCheckBox.isSelected()) {
 				      passwordField.setEchoChar((char)0); //password = JPasswordField
 				   } else {
-					   passwordField.setEchoChar('*');
+					   passwordField.setEchoChar('\u25cf');
 				   }
 			}
 		});
