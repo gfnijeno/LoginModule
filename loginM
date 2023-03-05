@@ -15,10 +15,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JInternalFrame;
 import java.awt.Color;
 import java.util.Scanner;
+import javax.swing.JCheckBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class loginModule {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField username;
 	private JPasswordField passwordField;
 	private JLabel lblNewLabel_1;
@@ -72,13 +75,16 @@ public class loginModule {
 				if(username.getText().equals("Admin") && passwordField.getText().equals("password1")){
 					submit nw = new submit();
 					nw.NewScreen();
+					frame.dispose();
 				} else if(username.getText().equals("Secretary") && passwordField.getText().equals("password2")){
 					submit nw = new submit();
 					nw.NewScreen();
+					frame.dispose();
 				}
 				else {
 					wsubmit nw = new wsubmit();
 					nw.screen();
+					frame.dispose();
 			}
 			}
 		});
@@ -110,5 +116,20 @@ public class loginModule {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(254, 247, 133, 26);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Show password");
+		chckbxNewCheckBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (chckbxNewCheckBox.isSelected()) {
+				      passwordField.setEchoChar((char)0); //password = JPasswordField
+				   } else {
+					   passwordField.setEchoChar('*');
+				   }
+			}
+		});
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxNewCheckBox.setBounds(193, 211, 116, 21);
+		frame.getContentPane().add(chckbxNewCheckBox);
 	}
 }
